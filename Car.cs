@@ -28,12 +28,16 @@ namespace Delegate_Classwork
             set
             {
                 _currentSpeed = value;
-                OnDriving(_currentSpeed);
-                if(_currentSpeed > 120)
+                if (OnDriving != null)
+                {
+                    OnDriving(_currentSpeed);
+                }
+
+                if(_currentSpeed > 120 && OnSpeeding != null)
                 {
                     OnSpeeding();
                 }
-                if(_currentSpeed == 0)
+                if(_currentSpeed == 0 && OnStop != null)
                 {
                     OnStop();
                 }

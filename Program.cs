@@ -12,15 +12,17 @@ namespace Delegate_Classwork
         {
             Program p = new Program();
             Car aCar = new Car();
-            aCar.OnSpeeding += new Car.Speeding(p.Speeding);
-            aCar.OnStop += new Car.Stop(p.Stopped);
-            aCar.OnDriving += new Car.Driving(p.Driving);
+            aCar.OnSpeeding += p.Speeding;
+            aCar.OnStop += p.Stopped;
+            aCar.OnDriving += p.Driving;
+            aCar.OnDriving += p.Driving2;
 
             aCar.CurrentSpeed = 0;
             aCar.CurrentSpeed = 100;
             aCar.CurrentSpeed = 120;
             aCar.CurrentSpeed = 130;
             aCar.CurrentSpeed = 140;
+            aCar.CurrentSpeed = -13;
         }
 
         public void Speeding()
@@ -36,6 +38,11 @@ namespace Delegate_Classwork
         public void Driving(int currentSpeed)
         {
             Console.WriteLine("You are driving at a speed of: " + currentSpeed);
+        }
+
+        public void Driving2(int currentSpeed)
+        {
+            Console.WriteLine("also hi");
         }
     }
 }
